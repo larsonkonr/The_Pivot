@@ -7,45 +7,8 @@ class Seed
     build_items_category
   end
 
-  def build_orders
-    order1 = Order.create(user_id: 1, status: "ordered", total: 2000)
-    order1_item1 = OrdersItem.create(item_id: 1, order_id: 1, quantity: 2, subtotal: 2000)
-
-    order2 = Order.create(user_id: 2, status: "ordered", total: 1500)
-    order2_item1 = OrdersItem.create(item_id: 1, order_id: 2, quantity: 1, subtotal: 1000)
-    order2_item6 = OrdersItem.create(item_id: 6, order_id: 2, quantity: 1, subtotal: 500)
-
-    order3 = Order.create(user_id: 3, status: "completed", total: 1000)
-    order3_item6 = OrdersItem.create(item_id: 6, order_id: 3, quantity: 2, subtotal: 1000)
-
-    order4 = Order.create(user_id: 4, status: "completed", total: 3400)
-    order4_item1 = OrdersItem.create(item_id: 1, order_id: 4, quantity: 1, subtotal: 1000)
-    order4_item6 = OrdersItem.create(item_id: 6, order_id: 4, quantity: 2, subtotal: 1000)
-    order4_item12 = OrdersItem.create(item_id: 12, order_id: 4, quantity: 2, subtotal: 1400)
-
-    order5 = Order.create(user_id: 6, status: "paid", total: 1700)
-    order5_item1 = OrdersItem.create(item_id: 11, order_id: 5, quantity: 1, subtotal: 500)
-    order5_item1 = OrdersItem.create(item_id: 9, order_id: 5, quantity: 1, subtotal: 1200)
-
-    order6 = Order.create(user_id: 7, status: "paid", total: 600)
-    order6_item17 = OrdersItem.create(item_id: 17, order_id: 6, quantity: 2, subtotal: 600)
-
-    order7 = Order.create(user_id: 8, status: "cancelled", total: 700)
-    order7_item18 = OrdersItem.create(item_id: 18, order_id: 7, quantity: 1, subtotal: 300)
-    order7_item19 = OrdersItem.create(item_id: 19, order_id: 7, quantity: 1, subtotal: 400)
-
-    order8 = Order.create(user_id: 9, status: "cancelled", total: 1000)
-    order8_item20 = OrdersItem.create(item_id: 20, order_id: 8, quantity: 2, subtotal: 1000)
-
-    order9 = Order.create(user_id: 1, status: "completed", total: 2000)
-    order9_item1 = OrdersItem.create(item_id: 1, order_id: 9, quantity: 2, subtotal: 2000)
-
-    order10 = Order.create(user_id: 2, status: "completed", total: 1100)
-    order10_item7 = OrdersItem.create(item_id: 7, order_id: 10, quantity: 2, subtotal: 1100)
-
-  end
-
   def build_items
+		categories = ["Fire", "Tornado", "Water & Food", "Hurricane", "Power", "Baby"]
     item1 = Item.create(title: "Gut Buster", description: "If it's in the store, it's in this burrito!", price: 1000, image: open("app/assets/images/gut-buster.jpg"))
     item2 = Item.create(title: "Atomic Sunrise", description: "Spicy green chili, egg, and potato burrito.", price: 850, image: open("app/assets/images/bfast-burrito.png"))
     item3 = Item.create(title: "Fiesta Especial", description: "A 4-foot party-sized burrito to share with your family and friends.", price: 8000, image:open("app/assets/images/4_foot_burrito.jpg"))
@@ -68,49 +31,26 @@ class Seed
     item20 = Item.create(title: "Enola Empenada", description: "This empenada is filled with cheese and our famous mushroom salsa.", price: 500, image: open("app/assets/images/beast.png"))
   end
 
-  def build_items_category
-    test1 = ItemsCategory.create(item_id: 1, category_id: 3)
-    test2 = ItemsCategory.create(item_id: 2, category_id: 2)
-    test3 = ItemsCategory.create(item_id: 2, category_id: 3)
-    test4 = ItemsCategory.create(item_id: 3, category_id: 3)
-    test5 = ItemsCategory.create(item_id: 3, category_id: 2)
-    test6 = ItemsCategory.create(item_id: 4, category_id: 3)
-    test7 = ItemsCategory.create(item_id: 5, category_id: 3)
-    test8 = ItemsCategory.create(item_id: 5, category_id: 2)
-    test9 = ItemsCategory.create(item_id: 6, category_id: 3)
-    test10 = ItemsCategory.create(item_id: 7, category_id: 3)
-    test11 = ItemsCategory.create(item_id: 7, category_id: 1)
-    test12 = ItemsCategory.create(item_id: 8, category_id: 3)
-    test13 = ItemsCategory.create(item_id: 8, category_id: 2)
-    test14 = ItemsCategory.create(item_id: 9, category_id: 2)
-    test15 = ItemsCategory.create(item_id: 10, category_id: 1)
-    test16 = ItemsCategory.create(item_id: 10, category_id: 4)
-    test17 = ItemsCategory.create(item_id: 11, category_id: 1)
-    test18 = ItemsCategory.create(item_id: 11, category_id: 4)
-    test19 = ItemsCategory.create(item_id: 12, category_id: 1)
-    test20 = ItemsCategory.create(item_id: 13, category_id: 3)
-    test21 = ItemsCategory.create(item_id: 14, category_id: 2)
-    test22 = ItemsCategory.create(item_id: 15, category_id: 2)
-    test23 = ItemsCategory.create(item_id: 16, category_id: 5)
-    test24 = ItemsCategory.create(item_id: 16, category_id: 2)
-    test25 = ItemsCategory.create(item_id: 17, category_id: 5)
-    test25 = ItemsCategory.create(item_id: 18, category_id: 5)
-    test26 = ItemsCategory.create(item_id: 18, category_id: 2)
-    test27 = ItemsCategory.create(item_id: 19, category_id: 5)
-    test28 = ItemsCategory.create(item_id: 19, category_id: 2)
-    test29 = ItemsCategory.create(item_id: 20, category_id: 5)
-  end
+
 
   def build_category
-    category1 = Category.create(name: "Vegetarian", description: "Meatless options.")
-    category2 = Category.create(name: "Spicy", description: "Hot! Hot! Hot!")
-    category3 = Category.create(name: "Specialty", description: "Chef's favorites.")
-    category4 = Category.create(name: "Breakfast", description: "Start your day off right.")
-    category5 = Category.create(name: "Sides", description: "A la carte options.")
+    category1 = Category.create(name: "Fire", description: "Fire Fire Fire")
+    category2 = Category.create(name: "Tornado", description: "Whirlwind cleanup")
+    category3 = Category.create(name: "Water & Food", description: "Neccesities for the body")
+    category4 = Category.create(name: "Hurricane", description: "Water damage supplies")
+    category5 = Category.create(name: "Power", description: "Electronics and power supplies")
+		category6 = Category.create(name: "Baby", description: "Baby supplies")
   end
 
 
   def build_users
+		100.times do
+      fullname = %W(Julia Goolia Hans Zimmer Brandonzinsky Guy Mike DaosCats Jeremy Gu Jack Napier Bruce Wayne Jimmy Bean Jack Johnson)
+			email = %w(hooaa@gmail.com ksjdfklsda@gmail.com gjdkjgkdgkd@gmail.com jkfdjdfjfjfjfjf@gmail.com hhhhhhhh@gmail.com kdfkdkdfkdfd@gmail.com jjjjjjjjjjj@gmail.com)
+			password = "password"
+ 			User.create(fullname: "#{fullname.sample}", email: "#{full_name.sample.gsub(" ","")}#{rand(1..1000000)}@example.com", password: "#{password}", role: 0 )
+		end
+
     user1 = User.create(fullname: "Johnny Bravo", email: "hooaa@gmail.com", display_name: "jbravo", password: "password", role: 0)
     user2 = User.create(fullname: "Rachel Warbelow", email: "demo+rachel@jumpstartlab.com", password: "password", role: 0)
     user3 = User.create(fullname: "Jeff Casmir", email: "demo+jeff@jumpstartlab.com", display_name: "j3", password: "password", role: 0)
@@ -121,8 +61,127 @@ class Seed
     user8 = User.create(fullname: "Raissa Shafer", email: "demo+raissa@jumpstartlab.com", password: "password", role: 0)
     user9 = User.create(fullname: "Josh Mejia", email: "demo+jmeija@jumpstartlab.com", display_name: "meija", password: "password", role: 0)
     user10 = User.create(fullname: "Joe Blow", email: "joe@gmail.com", display_name: "joe", password: "joe", role: 1, image: "joe_blow.jpg")
+		user11 = User.create(fullname: "Joe Blow", email: "joe@gmail.com", display_name: "joe", password: "joe", role: 1, image: "joe_blow.jpg")
+		
+		20.times do	
+		fullname = %W(Julia Goolia Hans Zimmer Brandonzinsky Guy Mike DaosCats Jeremy Gu Jack Napier Bruce Wayne Jimmy Bean Jack Johnson)
+		email = %w(hooaa@gmail.com ksjdfklsda@gmail.com gjdkjgkdgkd@gmail.com jkfdjdfjfjfjfjf@gmail.com hhhhhhhh@gmail.com kdfkdkdfkdfd@gmail.com jjjjjjjjjjj@gmail.com)
+		password = "password"
+
+     User.create(fullname: "", email: "#{full_name.sample.gsub(" ","")}#{rand(1..1000000)}@example.com", display_name: "joe", password: "joe", role: 2)
+		end
   end
 
+	def build_business
+    Business.create!(name: "Nado Relief",
+                    address: "1500 Blake St.",
+                    state: "CO",
+                    phone: "303-555-4544",
+                    email: "nadorelief@gmail.com",
+                    slug: "nado",
+                    url: "www.nado.com",
+                    description: "Emergency tornado relief supplies",
+                    active: true
+    )
 
+    Business.create!(name: "FireProof",
+                    address: "444 Window St.",
+                    state: "NV",
+                    phone: "444-331-6858",
+                    email: "firehelp@gmial..com",
+                    slug: "fireproof",
+                    url: "www.fireproofhelp.com",
+                    description: "All emergency supplies related to fire damage.",
+                    active: true
+    )
+
+    Business.create!(name: "Disaster Nation Warehouse",
+                    address: "1431 Street St.",
+                    state: "AL",
+                    phone: "982-9090-9865",
+                    email: "dnationwarehouse@gmail.com",
+                    slug: "disaster-nation",
+                    url: "www.disaster_nation_warehouse.com",
+                    description: "All of your disaster supplies here!",
+                    active: true
+    )
+
+    Business.create!(name: "The Helpful Hands",
+                    address: "1 Blake St.",
+                    state: "ME",
+                    phone: "802-565-7898",
+                    email: "helpfulhands@gmail.com.com",
+                    slug: "helpful-hands",
+                    url: "www.helpful_hands.com",
+                    description: "One stop shop for all your disaster supplies",
+                    active: true
+    )
+
+    Business.create!(name: "Water for the weary",
+                    address: "7511 Bone St.",
+                    state: "ME",
+                    phone: "802-908-5823",
+                    email: "water4theweary@gmail.com",
+                    slug: "water-4-the-weary",
+                    url: "www.water4theweary.com",
+                    description: "We have all things water!.",
+                    active: true
+    )
+
+    Business.create!(name: "Food Nation",
+                    address: "123 Blake St.",
+                    state: "CO",
+                    phone: "378-475-2457",
+                    email: "foodnation@gmail.com",
+                    slug: "food-nation",
+                    url: "www.foodnation.com",
+                    description: "We have all the food you need for emergency situations.",
+                    active: true
+    )
+
+    Business.create!(name: "From a Mile High",
+                    address: "100 Dercum Square",
+                    state: "CO",
+                    phone: "802-123-5858",
+                    email: "milehihgsupplies@milehighair.com",
+                    slug: "mile-high-air",
+                    url: "www.milehighair.com",
+                    description: "Assorted disaster supplies",
+                    active: true
+    )
+
+    Business.create!(name: "Hospitable World",
+                    address: "8111 Lowry Boulevard",
+                    state: "CO",
+                    phone: "802-345-7758",
+                    email: "hospitable@helpworld.com",
+                    slug: "happy-world",
+                    url: "www.happyworld.com",
+                    description: "The best in the world!.",
+                    active: true
+    )
+
+    Business.create!(name: "Rocky Start",
+                    address: "1311 Abbot Kinney",
+                    state: "CA",
+                    phone: "432-215-5644",
+                    email: "rockystart@gmail.com"
+                    slug: "stark-enterprises",
+                    url: "www.stark.com",
+                    description: "Help you get back to the right start",
+                    active: true
+    )
+
+    Business.create!(name: "ReliefbyGeorge",
+                    address: "9200 West Sunset Blvd",
+                    state: "CA",
+                    phone: "141-224-9823",
+                    email: "relief@bygeorge.com",
+                    slug: "george worldwide",
+                    url: "www.best-dang-supplies.com",
+                    description: "Yes we are more than a company.",
+                    active: true
+    )
+	end
 end
 Seed.new
