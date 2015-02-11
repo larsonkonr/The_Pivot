@@ -49,9 +49,8 @@ class Seed
 			first_name = %w(Jill Mike Bil Brandon Dan Jane Konr Alex Laura Rich Steve Kim Chad Tan Timmy Tom Jack Frank Bruce Tim)
 			last_name = %w(Zimmer Goolia Chadowsky Larson Shea Warbelow Smith Francis Alexia Fortonk Foo Gu Meija Cheek Zakkerz)
       fullname = "#{first_name.sample} #{last_name.sample}"
-			email = %w(hooaa@gmail.com ksjdfklsda@gmail.com gjdkjgkdgkd@gmail.com jkfdjdfjfjfjfjf@gmail.com hhhhhhhh@gmail.com kdfkdkdfkdfd@gmail.com jjjjjjjjjjj@gmail.com)
 			password = "password"
- 			User.create(fullname: "#{fullname.sample}", email: "#{full_name.gsub(" ","")}#{rand(1..1000000)}@example.com", password: "#{password}", role: 0 )
+ 			User.create(fullname: "#{fullname}", email: "#{full_name.gsub(" ","_")}#{rand(1..1000000)}@example.com", display_name: "#{first_name.sample}", password: "#{password}", role: 0 )
 		end
 
     user1 = User.create(fullname: "Johnny Bravo", email: "hooaa@gmail.com", display_name: "jbravo", password: "password", role: 0)
@@ -70,7 +69,7 @@ class Seed
 			first_name = %w(Jill Mike Bil Brandon Dan Jane Konr Alex Laura Rich Steve Kim Chad Tan Timmy Tom Jack Frank Bruce Tim)
 			last_name = %w(Zimmer Goolia Chadowsky Larson Shea Warbelow Smith Francis Alexia Fortonk Foo Gu Meija Cheek Zakkerz)
       fullname = "#{first_name.sample} #{last_name.sample}"
-     User.create(fullname: "", email: "#{full_name.gsub(" ","")}#{rand(1..1000000)}@example.com", display_name: "joe", password: "joe", role: 2)
+     User.create(fullname: "#{fullname}", email: "#{full_name.gsub(" ","_")}#{rand(1..1000000)}@example.com", display_name: "#{first_name.sample}", password: "password", role: 2)
 		end
   end
 
