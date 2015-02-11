@@ -5,6 +5,7 @@ class Seed
     build_orders
     build_users
     build_items_category
+		build_supplier
   end
 
   def build_items
@@ -72,8 +73,8 @@ class Seed
 		end
   end
 
-	def build_business
-    Business.create!(name: "Nado Relief",
+	def build_supplier
+    Supplier.create!(name: "Nado Relief",
                     address: "1500 Blake St.",
                     state: "CO",
                     phone: "303-555-4544",
@@ -84,7 +85,7 @@ class Seed
                     active: true
     )
 
-    Business.create!(name: "FireProof",
+    Supplier.create!(name: "FireProof",
                     address: "444 Window St.",
                     state: "NV",
                     phone: "444-331-6858",
@@ -95,7 +96,7 @@ class Seed
                     active: true
     )
 
-    Business.create!(name: "Disaster Nation Warehouse",
+    Supplier.create!(name: "Disaster Nation Warehouse",
                     address: "1431 Street St.",
                     state: "AL",
                     phone: "982-9090-9865",
@@ -106,7 +107,7 @@ class Seed
                     active: true
     )
 
-    Business.create!(name: "The Helpful Hands",
+    Supplier.create!(name: "The Helpful Hands",
                     address: "1 Blake St.",
                     state: "ME",
                     phone: "802-565-7898",
@@ -117,7 +118,7 @@ class Seed
                     active: true
     )
 
-    Business.create!(name: "Water for the weary",
+    Supplier.create!(name: "Water for the weary",
                     address: "7511 Bone St.",
                     state: "ME",
                     phone: "802-908-5823",
@@ -128,7 +129,7 @@ class Seed
                     active: true
     )
 
-    Business.create!(name: "Food Nation",
+    Supplier.create!(name: "Food Nation",
                     address: "123 Blake St.",
                     state: "CO",
                     phone: "378-475-2457",
@@ -139,7 +140,7 @@ class Seed
                     active: true
     )
 
-    Business.create!(name: "From a Mile High",
+   Supplier.create!(name: "From a Mile High",
                     address: "100 Dercum Square",
                     state: "CO",
                     phone: "802-123-5858",
@@ -150,7 +151,7 @@ class Seed
                     active: true
     )
 
-    Business.create!(name: "Hospitable World",
+    Supplier.create!(name: "Hospitable World",
                     address: "8111 Lowry Boulevard",
                     state: "CO",
                     phone: "802-345-7758",
@@ -161,7 +162,7 @@ class Seed
                     active: true
     )
 
-    Business.create!(name: "Rocky Start",
+    Supplier.create!(name: "Rocky Start",
                     address: "1311 Abbot Kinney",
                     state: "CA",
                     phone: "432-215-5644",
@@ -172,7 +173,7 @@ class Seed
                     active: true
     )
 
-    Business.create!(name: "ReliefbyGeorge",
+    Supplier.create!(name: "ReliefbyGeorge",
                     address: "9200 West Sunset Blvd",
                     state: "CA",
                     phone: "141-224-9823",
