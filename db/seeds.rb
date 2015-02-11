@@ -75,113 +75,73 @@ class Seed
 
 	def build_supplier
     Supplier.create!(name: "Nado Relief",
-                    address: "1500 Blake St.",
-                    state: "CO",
-                    phone: "303-555-4544",
-                    email: "nadorelief@gmail.com",
+                    address: "1500 Blake St. , CO",
                     slug: "nado",
-                    url: "www.nado.com",
                     description: "Emergency tornado relief supplies",
-                    active: true
+                    retired: true
     )
 
     Supplier.create!(name: "FireProof",
-                    address: "444 Window St.",
-                    state: "NV",
-                    phone: "444-331-6858",
-                    email: "firehelp@gmial..com",
+                    address: "444 Window St. , ME",
                     slug: "fireproof",
-                    url: "www.fireproofhelp.com",
                     description: "All emergency supplies related to fire damage.",
-                    active: true
+                    retired: true
     )
 
     Supplier.create!(name: "Disaster Nation Warehouse",
-                    address: "1431 Street St.",
-                    state: "AL",
-                    phone: "982-9090-9865",
-                    email: "dnationwarehouse@gmail.com",
+                    address: "1431 Street St. , AL",
                     slug: "disaster-nation",
-                    url: "www.disaster_nation_warehouse.com",
                     description: "All of your disaster supplies here!",
-                    active: true
+                    retired: true
     )
 
     Supplier.create!(name: "The Helpful Hands",
-                    address: "1 Blake St.",
-                    state: "ME",
-                    phone: "802-565-7898",
-                    email: "helpfulhands@gmail.com.com",
+                    address: "1 Blake St. , CO",
                     slug: "helpful-hands",
-                    url: "www.helpful_hands.com",
                     description: "One stop shop for all your disaster supplies",
-                    active: true
+                    retired: true
     )
 
     Supplier.create!(name: "Water for the weary",
-                    address: "7511 Bone St.",
-                    state: "ME",
-                    phone: "802-908-5823",
+                    address: "7511 Bone St. , ME",
                     email: "water4theweary@gmail.com",
-                    slug: "water-4-the-weary",
-                    url: "www.water4theweary.com",
                     description: "We have all things water!.",
-                    active: true
+                    retired: true
     )
 
     Supplier.create!(name: "Food Nation",
-                    address: "123 Blake St.",
-                    state: "CO",
-                    phone: "378-475-2457",
-                    email: "foodnation@gmail.com",
+                    address: "123 Blake St. , CO",
                     slug: "food-nation",
-                    url: "www.foodnation.com",
                     description: "We have all the food you need for emergency situations.",
-                    active: true
+                    retired: true
     )
 
    Supplier.create!(name: "From a Mile High",
-                    address: "100 Dercum Square",
-                    state: "CO",
-                    phone: "802-123-5858",
-                    email: "milehihgsupplies@milehighair.com",
+                    address: "100 Dercum Square, CO",
                     slug: "mile-high-air",
-                    url: "www.milehighair.com",
                     description: "Assorted disaster supplies",
-                    active: true
+                    retired: true
     )
 
     Supplier.create!(name: "Hospitable World",
-                    address: "8111 Lowry Boulevard",
-                    state: "CO",
-                    phone: "802-345-7758",
-                    email: "hospitable@helpworld.com",
+                    address: "8111 Lowry Boulevard , ID",
                     slug: "happy-world",
-                    url: "www.happyworld.com",
                     description: "The best in the world!.",
-                    active: true
+                    retired: true
     )
 
     Supplier.create!(name: "Rocky Start",
-                    address: "1311 Abbot Kinney",
-                    state: "CA",
-                    phone: "432-215-5644",
-                    email: "rockystart@gmail.com"
+                    address: "1311 Abbot Kinney , CA",
                     slug: "stark-enterprises",
-                    url: "www.stark.com",
                     description: "Help you get back to the right start",
-                    active: true
+                    retired: true
     )
 
     Supplier.create!(name: "ReliefbyGeorge",
-                    address: "9200 West Sunset Blvd",
-                    state: "CA",
-                    phone: "141-224-9823",
-                    email: "relief@bygeorge.com",
+                    address: "9200 West Sunset Blvd , CA",
                     slug: "george worldwide",
-                    url: "www.best-dang-supplies.com",
                     description: "Yes we are more than a company.",
-                    active: true
+                    retired: true
     )
 	end
 end
