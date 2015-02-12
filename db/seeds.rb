@@ -9,30 +9,36 @@ class Seed
   end
 
   def build_items
-		categories = ["Fire", "Tornado", "Water & Food", "Hurricane", "Power", "Baby"]
-    item1 = Item.create(title: "Gut Buster", description: "If it's in the store, it's in this burrito!", price: 1000, image: open("app/assets/images/gut-buster.jpg"))
-    item2 = Item.create(title: "Atomic Sunrise", description: "Spicy green chili, egg, and potato burrito.", price: 850, image: open("app/assets/images/bfast-burrito.png"))
-    item3 = Item.create(title: "Fiesta Especial", description: "A 4-foot party-sized burrito to share with your family and friends.", price: 8000, image:open("app/assets/images/4_foot_burrito.jpg"))
-    item4 = Item.create(title: "UF burritO", description: "Monthly special. It's out of this world.", price: 689, image: open("app/assets/images/AmericanBurrito.jpg"))
-    item5 = Item.create(title: "Smothered Dynamite", description: "Classic pork green chili smothered burrito, your choice of fillings.", price: 899, image: open("app/assets/images/burrito-2.png"))
-    item6 = Item.create(title: "Two Torpedo Tacos", description: "Two crispy chicken tacos.", price: 500, image: open("app/assets/images/tacos.jpg"))
-    item7 = Item.create(title: "Queso Quesadillas", description: "These delicious veggie dillas can be frisbeed to your door upon request.", price: 550, image: open("app/assets/images/quesadilla.png"))
-    item8 = Item.create(title: "Death by Burrito", description: "That's no moon, that's a Beef Burrito smoothered in spicy green chili sauce!", price: 750, image: open("app/assets/images/7_layer_burrito.png"))
-    item9 = Item.create(title: "Flaming Fajitas", description: "These veggie fajitas will set your mouth on fire.", price: 1200, image: open("app/assets/images/beast.png"))
-    item10 = Item.create(title: "Breakfast Quesadilla", description: "One delicious egg, cheese, and potato dilla.", price: 650, image: open("app/assets/images/bfast-burrito.png"))
-    item11 = Item.create(title: "Halo", description: "All fresh vegetables which gives you the moring shine.", price: 500, image: open("app/assets/images/bfast-burrito.png"))
-    item12 = Item.create(title: "Veggie delight", description: "Eat all your veggies, tomatoes, red onions, green peppers, mushrooms and more!", price: 700, image: open("app/assets/images/7_layer_burrito.png"))
-    item13 = Item.create(title: "Not Too Sweet", description: "Just enough to satisfy your sweet tooth, all sweet things.", price: 500, image: open("app/assets/images/AmericanBurrito.jpg"))
-    item14 = Item.create(title: "Classic", description: "Our classic burrito with authentic flavors.", price: 800, image: open("app/assets/images/burrito-2.png"))
-    item15 = Item.create(title: "Hot 'n Spicy", description: "All the hot and spicy things you can handle.", price: 1000, image: open("app/assets/images/burrito_360.png"))
-    item16 = Item.create(title: "Tamale Torpedo", description: "These little tamale bombs come in one flavor: spicy!", price: 400, image: open("app/assets/images/beast.png"))
-    item17 = Item.create(title: "Rice and Bombs", description: "Our slow-simmered black beans and cilantro-lime rice packaged up in individual parachute packs.", price: 300, image: open("app/assets/images/beast.png"))
-    item18 = Item.create(title: "Hot Sauce Bucket", description: "Just what it sounds like: a small bucket of our house hot sauce.", price: 300, image: open("app/assets/images/beast.png"))
-    item19 = Item.create(title: "Chips and Salsa", description: "A bag of chips bubble-wrapped for special delivery with a small bucket of our house hot sauce.", price: 400, image: open("app/assets/images/chips_salsa.jpg"))
-    item20 = Item.create(title: "Enola Empenada", description: "This empenada is filled with cheese and our famous mushroom salsa.", price: 500, image: open("app/assets/images/beast.png"))
-  end
+    titles = ["Bottled Water", "Water Purifier", "Water Tablets", "Canteen",
+             "Batteries", "Generator", "Gasoline", "Propane",
+             "Cell Phone", "Ham Radio", "Transister Radio", "Walkie Talkie",
+             "Beans", "Tuna Fish", "Baby Formula", "Food Box",
+             "Pants", "Shirts", "Socks", "Rain Gear"]
 
+    description = ["Fresh bottled water for drinking", "Purify any source of water", "Water tablets to purify your water", "Great storage container for water",
+                   "Duracell batteries for your electronics", "Portable power to get you up and running", "Keep the car moving", "Perfect for the grill",
+                   "Emergency cell phone", "Stay in touch with others", "Communicate with civilization", "Allow the family to communicate",
+                   "Tasty canned beans", "Tasty tuna fish - lots of protein", "Feed your baby", "Enough food for a family of 4",
+                   "Warm pants for your legs", "Warm shirts to stay dry", "Clean socks", "Stay dry in rainy weather"]
 
+    price = (1000..500000).to_a
+    weight = (10..500).to_a
+    quantity_available = (10..100).to_a
+    unit_size = (1..10).to_a
+    boolean = %w(true true true true true true true true true false)
+
+    titles.each_with_index do |title, i| 
+      Item.create(title:              "#{title}",
+                  description:        "#{description[i]}",
+                  price:              price.sample,
+                  weight:             weight.sample,
+                  quantity_available: quantity_available.sample, 
+                  unit_size:          unit_size.sample,
+                  shippable:          "#{boolean.sample}",
+                  retired:            "#{boolean.sample}",
+                  image:              "assets/logo.png")
+      end
+    end
 
   def build_category
     category1 = Category.create(name: "Fire", description: "Fire Fire Fire")
