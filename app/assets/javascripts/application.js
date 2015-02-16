@@ -27,10 +27,10 @@ $(document).ready(function(){
 	// when I check a supplier name
 	// I get a filtered list of all this suppliers items
 	// I do not see a list of any other suppliers items
-	$( "input[type=checkbox]" ).click(function(){
+	$("input[type=checkbox]").click(function(){
 		var supplier = $(this).val();
-		$('.suppliers').hide();
-	//	$(supplier).show();
+		var $all = $('.suppliers').hide();
+		$('.' + supplier).show();
 	});
 	// $(":checked")(function(){
 	// alert("we got here");
