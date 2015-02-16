@@ -3,7 +3,15 @@
 	<ul>
 		<% @items.each do |item|  %>	
 			<li>
-				Title: <%= link_to item.title, item_path(item)  %></br>
+				Title:<button type="button" class="btn btn-default" data-toggle="modal" data-target="<%= ".#{item.title}" %>">View More Info</button></br>
+				<div class="modal fade <%= "#{item.title}" %>"  tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+						  <div class="modal-dialog modal-md">
+								<div class="modal-content">
+              		<%= item.title  %>
+						    </div>
+						  </div>
+						</div>
+				<%= item.title %>
 				Description: <%= item.description  %></br>
 				Price: <%= number_to_currency(item.price.to_f/100) %></br>
 				Quantity:	<%= item.quantity %></br>
@@ -15,3 +23,13 @@
 		<% end  %>
 	</ul>
 </div>
+
+	<button type="button" class="btn btn-default" data-toggle="modal" data-target=".login-modal">Log In</button>
+						<div class="modal fade login-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+						  <div class="modal-dialog modal-md">
+								<div class="modal-content">
+              		<%= render partial: "./partials/login" %>
+						    </div>
+						  </div>
+						</div>
+
