@@ -2,8 +2,9 @@
 <ul>
 	<% @suppliers.each do |supplier| %>
 		<li>
-			<div class= <%= "#{supplier.name}" %>><%= check_box(:current_suppliers, "suppliers",{multipart: true},  supplier.name, nil) %></div>
-      <%= supplier.name  %>
+			<div class= <%= "#{supplier.name}" %>><%= check_box(:current_suppliers, "suppliers",{multipart: true},  supplier.name, nil) %>
+				<%= supplier.name  %>
+			</div>
 		</li>
 	<% end  %>
 	</ul>

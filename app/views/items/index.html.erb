@@ -1,19 +1,39 @@
 <h2>All Items</h2>
 <%= render partial: "partials/supplier_list" %>
 <% current_suppliers.each do |supplier| %>
-	<div class="suppliers <%= supplier.name %>" >
+	<div class="suppliers col-md-3 <%= supplier.name %>" >
 		<% supplier.items.each do |item| %>
 			<% if !item.retired %>
-			<ul>
-				<li>
-					<%= link_to item.title, item_path(item) %>
-					<%= image_tag item.image.url(:thumb) %>
-					<%= item.description %>
-					<%= number_to_currency(item.price.to_f / 100.00) %>
-					<%= button_to "Add to Cart", cart_index_path(item_id: item), class: "btn btn-default" %>
-				</li>
-			</ul>
+			<div>
+				<%=  item.title %><br>
+				<%= item.description %><br>
+				<%= image_tag item.image.url(:thumb) %><br>
+				<%= number_to_currency(item.price.to_f / 100.00) %><br>
+				<button type="button" class="btn btn-default" data-toggle="modal" data-target="<%= ".#{item.title}" %>">View More Info</button></br>
+				<div class="modal fade <%= "#{item.title}" %>"  tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-md">
+						<div class="modal-content">
+							 <div id="item_show" class="row">
+							 		<div class="col-md-4">
+							 	    <%= image_tag item.image.url(:medium) %>
+							 	  </div>
+							 	  <div class="col-md-8">
+							 	    <h2><%= item.title %></h2>
+							 	    <p><%= item.description %></p>
+							 	    <p><b>price: <%= number_to_currency(item.price.to_f / 100.00) %></b></p>
+							 	    <% if !item.retired %>
+							 	      <%= button_to "Add to Cart", cart_index_path(item_id: item), class: "btn btn-lg btn-default" %>
+							 	    <% end %>
+							 	  </div>
+								</div>
+						 </div>
+					</div>
+				</div>
+				<%= button_to "Add to Cart", cart_index_path(item_id: item), class: "btn btn-default" %>
+			</div>
 			<% end %>
 		<% end %>
 	</div>
-<% end %>	
+<% end %>
+
+
