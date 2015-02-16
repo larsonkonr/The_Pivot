@@ -2,7 +2,8 @@
 <ul>
 	<% @suppliers.each do |supplier| %>
 		<li>
-			<%= link_to supplier.name, supplier_path(supplier.slug)  %>
+			<div class= <%= "#{supplier.name}" %>><%= check_box(:current_suppliers, "suppliers", {:multiple => true}, supplier.name, nil) %></div>
+      <%= supplier.name  %>
 		</li>
 	<% end  %>
 	</ul>
