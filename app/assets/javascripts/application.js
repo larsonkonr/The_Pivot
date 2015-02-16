@@ -24,5 +24,10 @@ $(document).ready(function(){
   //   $(".container").css({padding-bottom: "150px"})
   // });
   //
+	$("input[type=checkbox]").click(function(){
+		var supplier = $(this).val();
+		var $all = $('.suppliers').hide();
+		$('.' + supplier).show();
+	});
 });
 
