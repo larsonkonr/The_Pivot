@@ -2,6 +2,7 @@ class Item < ActiveRecord::Base
   validates :title, presence: true, uniqueness: true
   validates :description, presence: true
   validates :price, presence: true, numericality: { :greater_than_or_equal_to => 0 }
+	validates :supplier_id, presence: true
   has_attached_file :image, styles: { medium: "300x300>",
                                         thumb: "100x100>" },
                                         default_url: "beans.jpg"
@@ -22,7 +23,7 @@ class Item < ActiveRecord::Base
 
   def item_supplier
     supplier_id = self.supplier_id
-    Supplier.find(supplier_id).name
+    Supplier.find(supplier_id).slug
   end
 
   def item_categories
