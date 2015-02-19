@@ -20,9 +20,11 @@ var checkBox = "input[type=checkbox]";
 var checked = "input[type=checkbox]:checked";
 //
 
+var $categoryCheckboxes = $('.category-checkbox');
+
 
 // filters the suppliers items from checkbox clicked
-var $filterSupplierItems = 	$(".supplier_list" + '' + checkBox).click(function(){
+var $filterSupplierItems = 	$(".supplier_list" + checkBox).click(function(){
 		$('.suppliers').hide();
 		var $selectedSupplier = $(checked).map(function(index, element){
 			return '.' + $(element).val()
@@ -33,14 +35,16 @@ var $filterSupplierItems = 	$(".supplier_list" + '' + checkBox).click(function()
 
 
 // filters the categories from the checkbox clicked
-var $filterCategoryItems = $('' + checkBox).click(function(){
-    $('.categories').hide();
-    var $selected = $(checked).map(function (index, element) {
-      return '.' + $(element).val()
-    });
-    var categories = $.makeArray($selected).join(',');
-    categories ? $(categories).show() : $('.categories').show();
-  });
+var $filterCategoryItems = $(checkBox).click(function(){
+	$('.categories').hide();
+	var $checkedBoxes = $categoryCheckboxes
+	.filter(function (index, element) {
+		return $(element).prop('checked')
+	});
+	$checkedBoxes.each(function (index, element) {
+			$('.' + $(element).val()).show()
+		});
+});
 
 
 $(document).ready(function(){

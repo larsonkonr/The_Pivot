@@ -74,10 +74,10 @@ class Seed
   end
 
   def build_category
-    category1 = Category.create(name: "Water", description: "Water Options")
+    category1 = Category.create(name: "Shelter", description: "Temporary shelter")
     category2 = Category.create(name: "Power", description: "Power Supplies")
-    category3 = Category.create(name: "Clothes", description: "Clothing")
-    category4 = Category.create(name: "Food", description: "Food options")
+    category3 = Category.create(name: "Food", description: "Food options")
+    category4 = Category.create(name: "Clothes", description: "Clothing")
     category5 = Category.create(name: "Communications", description: "Communicate clearly")
   end
 

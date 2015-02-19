@@ -2,8 +2,8 @@
   <ul>
     <% current_categories.each do |category| %>
     <label>
-      <input type="checkbox" value="<%= category.name %>" id="<%= category.name %>ID"/>
-      <%= category.name %>
+      <input type="checkbox" class="category-checkbox" value="<%= category.name %>" id="<%= category.name %>ID"/>
+      <%= category.name.chomp %>
     </label>
     <% end %>
   </ul>
