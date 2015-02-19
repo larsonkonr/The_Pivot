@@ -21,9 +21,12 @@ $(document).ready(function(){
   });
 
   $("input[type=checkbox]").click(function(){
-    var category = $(this).val();
-    var all = $('.categories').hide();
-    $('.' + category).toggle("show");
+    $('.categories').hide();
+    var $selected = $('input[type=checkbox]:checked').map(function (index, element) {
+      return '.' + $(element).val()
+    });
+    var categories = $.makeArray($selected).join(',');
+    categories ? $(categories).show() : $('.categories').show();
   });
 
 	$("checkbox:checked").click(function(){
