@@ -32,4 +32,8 @@ class Item < ActiveRecord::Base
     category_ids = items_categories.map { |ic| ic.category_id }
     category_ids.map { |category_id| Category.find(category_id) }
   end
+
+	def element_name
+		title.split.join
+	end
 end

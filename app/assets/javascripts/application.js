@@ -14,13 +14,19 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require_tree .
+//
+//
 
-$(document).ready(function(){
-  $(".not_logged_in").click(function(){
-    alert("You must be logged in to check out!")
-  });
+var $filterSupplierItems = 	$(".supplier_list input[type=checkbox]").click(function(){
+		$('.suppliers').hide();
+		var $selectedSupplier = $("input[type=checkbox]:checked").map(function(index, element){
+			return '.' + $(element).val()
+		});
+		var suppliers = $.makeArray($selectedSupplier).join(",");
+		suppliers ? $(suppliers).show() : $('.suppliers').show();
+	});
 
-  $("input[type=checkbox]").click(function(){
+var $filterCategoryItems = $("input[type=checkbox]").click(function(){
     $('.categories').hide();
     var $selected = $('input[type=checkbox]:checked').map(function (index, element) {
       return '.' + $(element).val()
@@ -29,12 +35,12 @@ $(document).ready(function(){
     categories ? $(categories).show() : $('.categories').show();
   });
 
-	$(".supplier_list input[type=checkbox]").click(function(){
-		$('.suppliers').hide();
-		var $selectedSupplier = $("input[type=checkbox]:checked").map(function(index, element){
-			return '.' + $(element).val()
-		});
-		var suppliers = $.makeArray($selectedSupplier).join(",");
-		suppliers ? $(suppliers).show() : $('.suppliers').show();
-	});
+$(document).ready(function(){
+  $(".not_logged_in").click(function(){
+    alert("You must be logged in to check out!")
+  });
+	
+	$filterCategoryItems();
+	$filterSupplierItems();
+  
 });
