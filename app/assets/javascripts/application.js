@@ -29,9 +29,12 @@ $(document).ready(function(){
     categories ? $(categories).show() : $('.categories').show();
   });
 
-	$("checkbox:checked").click(function(){
-		var supplier = $(this).val();
-		var all = $('.suppliers').hide();
-		$('.' + supplier).show();
+	$(".supplier_list input[type=checkbox]").click(function(){
+		$('.suppliers').hide();
+		var $selectedSupplier = $("input[type=checkbox]:checked").map(function(index, element){
+			return '.' + $(element).val()
+		});
+		var suppliers = $.makeArray($selectedSupplier).join(",");
+		suppliers ? $(suppliers).show() : $('.suppliers').show();
 	});
 });
