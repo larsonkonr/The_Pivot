@@ -14,21 +14,45 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require_tree .
+//
+//
+var checkBox = "input[type=checkbox]";
+var checked = "input[type=checkbox]:checked";
+//
+
+var $categoryCheckboxes = $('.category-checkbox');
+
+
+// filters the suppliers items from checkbox clicked
+var $filterSupplierItems = 	$(".supplier_list" + checkBox).click(function(){
+		$('.suppliers').hide();
+		var $selectedSupplier = $(checked).map(function(index, element){
+			return '.' + $(element).val()
+		});
+		var suppliers = $.makeArray($selectedSupplier).join(",");
+		suppliers ? $(suppliers).show() : $('.suppliers').show();
+	});
+
+
+// filters the categories from the checkbox clicked
+var $filterCategoryItems = $(checkBox).click(function(){
+	$('.categories').hide();
+	var $checkedBoxes = $categoryCheckboxes
+	.filter(function (index, element) {
+		return $(element).prop('checked')
+	});
+	$checkedBoxes.each(function (index, element) {
+			$('.' + $(element).val()).show()
+		});
+});
+
 
 $(document).ready(function(){
   $(".not_logged_in").click(function(){
     alert("You must be logged in to check out!")
   });
 
-  $("input[type=checkbox]").click(function(){
-    var category = $(this).val();
-    var all = $('.categories').hide();
-    $('.' + category).toggle("show");
-  });
+	$filterCategoryItems;
+	$filterSupplierItems;
 
-	$("checkbox:checked").click(function(){
-		var supplier = $(this).val();
-		var all = $('.suppliers').hide();
-		$('.' + supplier).show();
-	});
 });
