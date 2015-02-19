@@ -18,41 +18,26 @@
 //
 var checkBox = "input[type=checkbox]";
 var checked = "input[type=checkbox]:checked";
-//
-
-// var $categoryCheckboxes = $('.category-checkbox');
-
 
 // filters the suppliers items from checkbox clicked
-var $filterSupplierItems = 	$(".supplier_list" + checkBox).click(function(){
-		$('.suppliers').hide();
-		var $selectedSupplier = $(checked).map(function(index, element){
-			return '.' + $(element).val()
-		});
-		var suppliers = $.makeArray($selectedSupplier).join(",");
-		suppliers ? $(suppliers).show() : $('.suppliers').show();
-	});
+var $filterSupplierItems =     $(".supplier_list" + '' + checkBox).click(function(){
+  $('.suppliers').hide();
+  var $selectedSupplier = $(checked).map(function(index, element){
+    return '.' + $(element).val()
+  });
+  var suppliers = $.makeArray($selectedSupplier).join(",");
+  suppliers ? $(suppliers).show() : $('.suppliers').show();
+});
 
 
 // filters the categories from the checkbox clicked
-// var $filterCategoryItems = $(checkBox).click(function(){
-// 	$('.categories').hide();
-// 	var $checkedBoxes = $categoryCheckboxes
-// 	.filter(function (index, element) {
-// 		return $(element).prop('checked')
-// 	});
-// 	$checkedBoxes.each(function (index, element) {
-// 			$('.' + $(element).val()).show()
-// 		});
-// });
-
-var $filterCategoryItems = 	$(checkBox).click(function(){
+var $filterCategoryItems = $(checkBox).click(function(){
   $('.categories').hide();
-  var $selectedCategory = $(checked).map(function(index, element){
+  var $selected = $(checked).map(function (index, element) {
     return '.' + $(element).val()
   });
-  var categories = $.makeArray($selectedCategory).join(",");
-  categories ? $(cateogries).show() : $('.categories').show();
+  var categories = $.makeArray($selected).join(',');
+  categories ? $(categories).show() : $('.categories').show();
 });
 
 

@@ -25,7 +25,6 @@ feature "unathenticated users can see a list of items" do
     @item2 = Item.create(title: "BB Gun", description: "For fending off zombie squirrels.", price: 7000, quantity: 75, supplier_id: @supplier.id)
     @category2.items << @item2
     visit items_path
-    save_and_open_page
     find(:css, "#WaterID[type='checkbox']").set(true)
     find(:css, "#SuppliesID[type='checkbox']").set(true)
     expect(page).to have_content("Water Purifier")
