@@ -6,7 +6,7 @@ feature "Admin User Items" do
     @admin_user = User.create(admin_user_attributes)
     @supplier_admin = SupplierAdmin.create(supplier_id: @supplier.id, user_id: @admin_user.id)
     @category = Category.create(category_attributes)
-    @item = Item.create(item_attributes)
+    @item = @supplier.items.create(item_attributes)
     @slug = @supplier.slug
   end
 
@@ -14,7 +14,7 @@ feature "Admin User Items" do
     allow_any_instance_of(ApplicationController).
       to receive(:current_user).and_return(@admin_user)
     visit supplier_items_path(@slug)
-    expect(page).to have_content("Water Filter")
+    expect(page).to have_content("Water Purifier")
   end
 
   xscenario "Admin User can create new items and see them on index page" do
