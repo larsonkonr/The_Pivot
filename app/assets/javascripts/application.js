@@ -16,19 +16,21 @@
 //= require_tree .
 //
 //
+var checkBox = "input[type=checkbox]";
+var checked = "input[type=checkbox]:checked";
 
-var $filterSupplierItems = 	$(".supplier_list input[type=checkbox]").click(function(){
+var $filterSupplierItems = 	$(".supplier_list" + '' + checkBox).click(function(){
 		$('.suppliers').hide();
-		var $selectedSupplier = $("input[type=checkbox]:checked").map(function(index, element){
+		var $selectedSupplier = $(checked).map(function(index, element){
 			return '.' + $(element).val()
 		});
 		var suppliers = $.makeArray($selectedSupplier).join(",");
 		suppliers ? $(suppliers).show() : $('.suppliers').show();
 	});
 
-var $filterCategoryItems = $("input[type=checkbox]").click(function(){
+var $filterCategoryItems = $(checkBox).click(function(){
     $('.categories').hide();
-    var $selected = $('input[type=checkbox]:checked').map(function (index, element) {
+    var $selected = $(checked).map(function (index, element) {
       return '.' + $(element).val()
     });
     var categories = $.makeArray($selected).join(',');
@@ -40,7 +42,7 @@ $(document).ready(function(){
     alert("You must be logged in to check out!")
   });
 	
-	$filterCategoryItems();
-	$filterSupplierItems();
+	$filterCategoryItems;
+	$filterSupplierItems;
   
 });
