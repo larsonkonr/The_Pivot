@@ -2,7 +2,7 @@ class Seed
   def initialize
     build_items
     build_category
-    #build_orders
+    build_orders
     build_users
     build_items_category
 		build_supplier
@@ -80,7 +80,6 @@ class Seed
     category4 = Category.create(name: "Food", description: "Food options")
     category5 = Category.create(name: "Communications", description: "Communicate clearly")
   end
-
 
   def build_users
     user1 = User.create(fullname: "Johnny Bravo", email: "hooaa@gmail.com", display_name: "jbravo", password: "password", role: 0)

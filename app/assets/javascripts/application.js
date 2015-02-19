@@ -18,7 +18,7 @@
 //
 var checkBox = "input[type=checkbox]";
 var checked = "input[type=checkbox]:checked";
-// 
+//
 
 
 // filters the suppliers items from checkbox clicked
@@ -33,7 +33,7 @@ var $filterSupplierItems = 	$(".supplier_list" + '' + checkBox).click(function()
 
 
 // filters the categories from the checkbox clicked
-var $filterCategoryItems = $(checkBox).click(function(){
+var $filterCategoryItems = $('' + checkBox).click(function(){
     $('.categories').hide();
     var $selected = $(checked).map(function (index, element) {
       return '.' + $(element).val()
@@ -47,8 +47,8 @@ $(document).ready(function(){
   $(".not_logged_in").click(function(){
     alert("You must be logged in to check out!")
   });
-	
+
 	$filterCategoryItems;
 	$filterSupplierItems;
-  
+
 });
