@@ -16,9 +16,6 @@ feature "supplier visits the site" do
 		allow_any_instance_of(ApplicationController).to receive(:current_user)
 			.and_return(@user)
 		visit supplier_path(@supplier.slug)
-		within('.open-orders') do
-			expect(page).to have_content("Open Orders")
-		end
 		expect(page).to have_link("View All Orders")
 		expect(page).to have_link("Manage Items")
 		expect(page).to have_link("Manage Fireproof Administrators")
