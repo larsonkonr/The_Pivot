@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 	has_many :addresses
   has_many :orders, through: :addresses
   has_one :supplier_admin
-
+  before_save :role_to_i 
 
   enum role: %w(default supplier admin)
 
@@ -30,5 +30,11 @@ class User < ActiveRecord::Base
 
 	def element_name
 		fullname.split.join.delete('^a-zA-Z')
+	end
+
+	private
+
+	def role_to_i
+		role.to_i
 	end
 end

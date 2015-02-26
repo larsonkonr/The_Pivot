@@ -1,13 +1,14 @@
 class UsersController < ApplicationController
 	include UsersHelper
-  before_filter :authorize, only: [:show]
+	before_filter :authorize, only: [:show, :update, :new]
 
   def new
-    @user = User.new
+   @user = User.new
   end
 
   def create
     @user = User.new(user_params)
+		@user.role.to_i
     if @user.save
       session[:user_id] = @user.id
       redirect_to root_url
@@ -23,6 +24,7 @@ class UsersController < ApplicationController
                                  :email,
                                  :password,
 																 :password_confirmation,
-                                 :display_name)
+                                 :display_name,
+																 :role)
   end
 end
