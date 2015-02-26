@@ -45,7 +45,6 @@ feature "Supplier Login" do
 
   scenario "Supplier admin can log In" do
     visit root_path
-    save_and_open_page
     first(:button, "Log In").click
     within(".login-modal") do
       fill_in "session[email]", with: user.email
@@ -54,7 +53,7 @@ feature "Supplier Login" do
     end
     expect(current_path).to eq(supplier_path(supplier.slug))
     within("#supplier_home") do
-      expect(page).to have_content("Supplier X Supplier Page")
+      expect(page).to have_content("Supplier X")
     end
   end
 

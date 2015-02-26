@@ -80,7 +80,7 @@ feature "Admin User" do
     expect(page).to have_content("paid")
   end
 
-  scenario "Admin can visit a supplier listing page" do
+  xscenario "Admin can visit a supplier listing page" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).
       and_return(@admin_user)
       visit supplier_path(@supplier.slug)
