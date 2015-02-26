@@ -4,20 +4,75 @@
     </div>
     <div class="col-md-5 welcome-side">
       <h1>Get relief...<br/>
-      ...now</h1>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...now</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 feature">
+        <div class="row">
+          <div class="col-sm-12">
+            <h3><%= link_to "Top Water Supplies", items_path %></h3>
+          </div>
+        </div>
+        <% if @water_products[0] %>
+          <div class="row">
+            <div class="col-sm-4">
+              <%= image_tag @water_products.first.image.url(:thumb) %>
+            </div>
+            <div class="col-sm-8">
+              <ul>
+              <% @water_products.each do |product|  %>
+                <li><%= link_to product.title, item_path(product) %></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="col-md-4 feature">
+        <div class="row">
+          <div class="col-sm-12">
+            <h3><%= link_to "Survival Basics", items_path %></h3>
+          </div>
+        </div>
+        <% if @survival_products[0] %>
+          <div class="row">
+            <div class="col-sm-4">
+              <%= image_tag @survival_products.last.image.url(:thumb) %>
+            </div>
+            <div class="col-sm-8">
+              <ul>
+                <% @survival_products.each do |product|  %>
+                  <li><%= link_to product.title, item_path(product) %></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="col-md-4 feature">
+        <div class="row">
+          <div class="col-sm-12">
+            <h3><%= link_to "Clothing Collection", items_path %></h3>
+          </div>
+        </div>
+        <% if @clothing_products[0] %>
+          <div class="row">
+            <div class="col-sm-4">
+              <%= image_tag @clothing_products.first.image.url(:thumb) %>
+            </div>
+            <div class="col-sm-8">
+              <ul>
+                <% @clothing_products.each do |product|  %>
+                  <li><%= link_to product.title, item_path(product) %></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-4 text-center feature">
-      <h3><%= link_to "Top Water Supplies", items_path %></h3>
-    </div>
-    <div class="col-md-4 text-center feature">
-      <h3><%= link_to "Survival Basics", items_path %></h3>
-    </div>
-    <div class="col-md-4 text-center feature">
-      <h3><%= link_to "Clothing Collection", items_path %></h3>
-    </div>
-  </div>
-</div>
-  </div>
-</div>
