@@ -45,6 +45,7 @@ feature "Supplier Login" do
 
   scenario "Supplier admin can log In" do
     visit root_path
+    save_and_open_page
     first(:button, "Log In").click
     within(".login-modal") do
       fill_in "session[email]", with: user.email
