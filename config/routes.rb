@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root "welcome#index"
   get "/not_found", to: "welcome#not_found"
   get "/register", to: "users#new"

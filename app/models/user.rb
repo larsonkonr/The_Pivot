@@ -1,13 +1,12 @@
 class User < ActiveRecord::Base
   has_secure_password
   validates :fullname, :role, presence: true
-	validates :password, presence: true, on: :create
+
   validates :email, presence: true, uniqueness: true
   validates :display_name, length: { in: 2..32 }, allow_nil: true, on: :create
 	has_many :addresses
   has_many :orders, through: :addresses
   has_one :supplier_admin
-
 
   enum role: %w(default supplier admin)
 
@@ -31,4 +30,5 @@ class User < ActiveRecord::Base
 	def element_name
 		fullname.split.join.delete('^a-zA-Z')
 	end
+
 end

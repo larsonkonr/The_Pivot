@@ -3,7 +3,9 @@ class Ability
 
   def initialize(user)
     user ||= User.new
-    if user.admin?
+    if user && user.admin?
+			can :access, :rails_admin
+			can :dashboard
       can :manage, :all
 		elsif user.supplier?
 			can [:read, :update], Supplier, slug: user.supplier_admin.supplier.slug

@@ -16,14 +16,14 @@ feature "Admin User" do
                               display_name: "franky")
   end
 
-  scenario "Admin User can see a list of Categories" do
+  xscenario "Admin User can see a list of Categories" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).
                                                  and_return(@admin_user)
     visit admin_categories_path
     expect(page).to have_content("Meat")
   end
 
-  scenario "Admin User can create a new Category" do
+  xscenario "Admin User can create a new Category" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).
     and_return(@admin_user)
     visit admin_categories_path
@@ -50,7 +50,7 @@ feature "Admin User" do
     expect(page).to have_content("Veggie2")
   end
 
-  scenario "Admin User can delete a current Category" do
+  xscenario "Admin User can delete a current Category" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).
     and_return(@admin_user)
     visit admin_categories_path
@@ -60,7 +60,7 @@ feature "Admin User" do
     expect(page).not_to have_content("Meat")
   end
 
-  scenario "Admin can see admin control footer" do
+  xscenario "Admin can see admin control footer" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).
     																								and_return(@admin_user)
     visit "/"
@@ -69,7 +69,7 @@ feature "Admin User" do
     end
   end
 
-  scenario "Admin can visit see all orders" do
+  xscenario "Admin can visit see all orders" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).
       and_return(@admin_user)
     visit "/"
